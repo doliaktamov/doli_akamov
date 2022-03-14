@@ -1,0 +1,16 @@
+<form method="POST" action=".">
+    {% csrf_token %}
+    <h2>Создание сотрудника</h2>
+        <input type="text" name="first_name">
+        <input type="text" name="surname">
+        <input type="text" name="last_name">
+        <input type="date" name="date_of_birth">
+        <input type="date" name="working_date">
+        <input type="text" name="job">
+        <select name="company">
+            {% for com in companies %}
+            <option value="{{ com.id}}">{{com.name}}</option>
+            {% endfor %}
+        </select>
+    <button type="submit">Создать</button>
+</form>

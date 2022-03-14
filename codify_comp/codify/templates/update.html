@@ -1,0 +1,14 @@
+<form method="POST" action=".">
+    {% csrf_token %}
+    <h2>обновление сотрудника</h2>
+        <input value="{{ employee.first_name }}" type="text" name="first_name">
+        <input value="{{ employee.surname }}" type="text" name="surname">
+        <input value="{{ employee.last_name }}" type="text" name="last_name">
+        <input value="{{ employee.job }}" type="text" name="job">
+        <select  name="company">
+            {% for com in companies %}
+            <option value="{{ com.id}}">{{com.name}}</option>
+            {% endfor %}
+        </select>
+    <button type="submit">Обновить</button>
+</form>
